@@ -5,6 +5,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
+import track from "react-tracking";
 
 const StyledCard = styled(Card)`
     background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
@@ -45,7 +46,10 @@ const User = props => {
                 <Text>{props.person.email}</Text>
                 <Actions>
                     <HomeBtn
-                        onClick={() => setCount(count + 1)}
+                        onClick={() => {
+                            props.tracking.trackEvent({ action: "click" });
+                            setCount(count + 1);
+                        }}
                         variant="outlined"
                     >
                         GO HOME
@@ -56,4 +60,6 @@ const User = props => {
     );
 };
 
-export default User;
+export default track({
+    page: "User"
+})(User);

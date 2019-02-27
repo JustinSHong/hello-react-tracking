@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Users from "./components/Users";
 import styled from "styled-components";
+import Users from "./components/Users";
+import track from "react-tracking";
 
 const Main = styled.div`
     background: #1a237e;
@@ -15,12 +16,14 @@ const Header = styled.h1`
     color: #eee;
 `;
 
+@track({ page: "App" })
 class App extends Component {
     state = {
         users: [],
         error: ""
     };
 
+    @track()
     componentDidMount() {
         fetch("https://jsonplaceholder.typicode.com/users")
             .then(response => response.json())
