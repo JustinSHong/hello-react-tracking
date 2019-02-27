@@ -3,12 +3,16 @@ import Users from "./components/Users";
 import styled from "styled-components";
 
 const Main = styled.div`
-    border: 1px solid red;
+    background: #1a237e;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: center;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+`;
+
+const Header = styled.h1`
+    color: #eee;
 `;
 
 class App extends Component {
@@ -33,7 +37,7 @@ class App extends Component {
 
         return (
             <Main>
-                <h1>HELLO</h1>
+                <Header>HELLO USERS</Header>
                 <Users data={users} />
             </Main>
         );
