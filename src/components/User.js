@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
@@ -31,6 +31,12 @@ const HomeBtn = styled(Button)`
 `;
 
 const User = props => {
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        document.title = `You clicked ${count} times`;
+    });
+
     return (
         <StyledCard>
             <CardContent>
@@ -38,7 +44,12 @@ const User = props => {
                 <Text>{props.person.username}</Text>
                 <Text>{props.person.email}</Text>
                 <Actions>
-                    <HomeBtn variant="outlined">GO HOME</HomeBtn>
+                    <HomeBtn
+                        onClick={() => setCount(count + 1)}
+                        variant="outlined"
+                    >
+                        GO HOME
+                    </HomeBtn>
                 </Actions>
             </CardContent>
         </StyledCard>
