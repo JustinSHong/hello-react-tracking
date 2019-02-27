@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Users from "./components/Users";
 import styled from "styled-components";
 
 const Main = styled.div`
@@ -7,6 +8,7 @@ const Main = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    text-align: center;
 `;
 
 class App extends Component {
@@ -32,6 +34,7 @@ class App extends Component {
         return (
             <Main>
                 <h1>HELLO</h1>
+                <Users data={users} />
             </Main>
         );
     }
